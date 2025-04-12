@@ -1,0 +1,74 @@
+---
+import { Icon } from "@astrojs/starlight/components";
+import type { Icons } from "../../node_modules/@astrojs/starlight/components/Icons";
+
+type Link = {
+  name: string;
+  href: string;
+  icon?: keyof typeof Icons;
+};
+
+// https://starlight.astro.build/guides/components/#all-icons
+const links: Array<Link> = [
+  { name: "Docs", href: "/docs",  },
+  { name: "Blog", href: "/blog/", },
+];
+---
+
+<div class="menu-items" style="display: flex; align-items: center; gap: 1rem;">
+  {
+    links.map((link) => (
+      <a
+        class="link-no-deco hover:scale-110 flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all"
+        href={link.href}
+        data-astro-prefetch="load"
+      >
+        <span class="font-bold text-lg max-lg:text-xs max-md:text-xs">
+          {link.name}
+        </span>
+        {link.icon && (
+          <Icon
+            class=""
+            name={link.icon}
+          />
+        )}
+      </a>
+    ))
+  }
+</div>
+
+<style>
+  .menu-items {
+    gap: 1rem;
+    justify-content: flex-end;
+    align-items: center;
+    font-weight: 500;
+    margin-left: 20px;;
+  }
+
+  .menu-items > a {
+
+  }
+
+  .menu-items > a:first {
+     margin-left: 100px;
+  }
+
+
+
+  .menu-items::before {
+    content: "";
+    height: 2rem;
+    border-inline-end: 1px solid var(--sl-color-gray-5);
+
+  }
+
+  .link-no-deco {
+    text-decoration: none;
+    color: var(--sl-color-gray-2);
+  }
+
+  svg {
+     vertical-align: middle;
+  }
+</style>

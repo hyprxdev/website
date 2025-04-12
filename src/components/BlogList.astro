@@ -1,0 +1,12 @@
+---
+import { Card, CardGrid } from '@astrojs/starlight/components';
+import Posts  from "../../node_modules/starlight-blog/components/Posts.astro";
+import type { StarlightBlogEntry } from '../../node_modules/starlight-blog/libs/content.ts';
+
+---
+
+
+<Posts
+   entries={Astro.locals.starlightBlog.posts.map(o => o.entry as StarlightBlogEntry)}
+    locale={Astro.props.locale}
+/>
