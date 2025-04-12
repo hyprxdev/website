@@ -12,12 +12,19 @@ export default defineConfig({
   },
   integrations: [
       starlight({
-          title: 'Hyprx Dev',
+          title: 'Hypr X Dev',
+		  logo: {
+			 src: "./src/assets/logo.png",
+		  },
+		  customCss: [
+			// Relative path to your custom CSS file
+			'./src/styles/custom.css',
+		  ],
           plugins: [startlightBlog({
               authors: {
                   hyprxdev: {
-                      name: 'HyprxDev',
-                      title: 'Hyprx Mad Scientist',
+                      name: 'Hypr x Dev',
+                      title: 'Professional Cat Herder',
                       picture: 'https://avatars.githubusercontent.com/u/180069990?v=4',
                       url: "https://hyprx.dev",
                   }
